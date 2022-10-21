@@ -1,15 +1,15 @@
 import { initializeApp, cert, getApps } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 
-import { ServiceAccount } from "../credentials.js";
+import serviceAccount  from "../credentials.js";
 
 
 export default function dbConnect(){
     if(!getApps().length) {
         initializeApp( {
-            credential: cert(ServiceAccount)
+            credential: cert(serviceAccount)
 
         })
     }
-    return getFirestore(app)
+    return getFirestore()
 }
